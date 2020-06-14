@@ -57,7 +57,7 @@ export default function PostView(props){
     },[])
 
     return(<div><MenuBar/>
-        <div style={{backgroundColor:'white', margin:'6% 5% 1% 5%', borderRadius:'15px'}} >
+        <div className="anuncio" style={{backgroundColor:'white',display:"flex", margin:'6% 5% 1% 5%', borderRadius:'15px'}} >
             
             <div className="containerPost" >
             {postagem.map((post,key)=>(
@@ -68,6 +68,12 @@ export default function PostView(props){
                     </>
                 ))}
             </div>
+            <a className="anuncioG" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                        <img src="https://static.popcash.net/img/affiliate/160x600.jpg" alt="PopCash.net"/>
+                    </a>
+                    <a className="anuncioP" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                        <img style={{width:"95%"}} src="https://static.popcash.net/img/affiliate/468x60.jpg" alt="PopCash.net"/>
+                    </a>
         </div>
     </div>
         

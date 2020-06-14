@@ -62,15 +62,23 @@ export default function PostFrontView(props){
     return(
         <div>
             <MenuBar/>
-            <div className="containerPost" style={{backgroundColor:'white', margin:'6% 5% 1% 5%', borderRadius:'15px'}} >
-            {postagem.map((post,key)=>(
-                    <>
-                        <div className="containerTitle"><h1>{post.titulos}</h1></div>
-                        <div className="containerImage"><img alt="" src={post.images}/></div>
-                        <div className="containerTexto"><p>{post.textos}</p></div>
-                    </>
-                ))}
-            </div>
+                <div className="anuncio" style={{display:"flex",backgroundColor:'white', margin:'6% 5% 1% 5%', borderRadius:'15px'}} >
+                    <div  className="containerPost" >
+                        {postagem.map((post,key)=>(
+                            <>
+                                <div className="containerTitle"><h1>{post.titulos}</h1></div>
+                                <div className="containerImage"><img alt="" src={post.images}/></div>
+                                <div className="containerTexto"><p>{post.textos}</p></div>
+                            </>
+                        ))}
+                    </div>
+                    <a className="anuncioG" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                        <img src="https://static.popcash.net/img/affiliate/160x600.jpg" alt="PopCash.net"/>
+                    </a>
+                    <a className="anuncioP" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                        <img style={{width:"95%"}} src="https://static.popcash.net/img/affiliate/468x60.jpg" alt="PopCash.net"/>
+                    </a>
+                </div>
         </div>
     )
 

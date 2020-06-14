@@ -28,7 +28,7 @@ var Immutable = require("immutable");
 
 var BOLD = SampleDraftInlineStyle.BOLD,
     ITALIC = SampleDraftInlineStyle.ITALIC;
-var ENTITY_KEY = '1';
+var ENTITY_KEY = '2';
 var BLOCKS = [new ContentBlock({
   key: 'a',
   type: 'unstyled',

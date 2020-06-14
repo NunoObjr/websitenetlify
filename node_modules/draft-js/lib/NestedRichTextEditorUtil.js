@@ -128,7 +128,7 @@ var NestedRichTextEditorUtil = {
       if (withoutAtomicBlock !== content) {
         return EditorState.push(editorState, withoutAtomicBlock, 'remove-range');
       }
-    } // if we have a next sibbling we should not allow the normal backspace
+    } // if we have a next sibling we should not allow the normal backspace
     // behaviour of moving this text into its parent
     // if (currentBlock.getPrevSiblingKey()) {
     //  return editorState;
