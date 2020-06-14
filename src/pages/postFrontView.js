@@ -18,7 +18,9 @@ export default function PostFrontView(props){
                 
             })
             setPostagem(vetAux)
+            console.log('entrou if')
         }else{
+
             let str = ''
             let cont = 0
             for(let i =0;i<props.location.pathname.length;i++){
@@ -30,6 +32,7 @@ export default function PostFrontView(props){
                     str = `${str+props.location.pathname[i]}`
                 }
             }
+            console.log('entrou else')
             let fotos = [];
             let textos = [];
             let titulos = [];
