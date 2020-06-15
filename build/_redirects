@@ -1,4 +1,3 @@
-/postCatView/* /postCatView/shomethingHere 200
-/postView/* /postView/shomethingHere 200
-/postFront/* /postFront/postFront2 200
-/*    /index.html   200
+/postCatView/* /postCatView/:splat 301!
+/postView/* /postView/:splat 301!
+/postFront/* /postFront/:splat 301!

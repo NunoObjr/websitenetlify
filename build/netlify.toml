@@ -1,12 +1,9 @@
 [[headers]]
-for = "/postCatView/* /postCatView/shomethingHere 200"
+for = "/postCatView/* /postCatView/:splat 301!"
 [headers.values]
 [[headers]]
-for = "/postView/* /postView/shomethingHere 200"
+for = "/postView/* /postView/:splat 301!"
 [headers.values]
 [[headers]]
-for = "/postFront/* /postFront/postFront2 200"
-[headers.values]
-[[headers]]
-for = "/* /index.html 200"
+for = "/postFront/* /postFront/:splat 301!"
 [headers.values]
