@@ -1,7 +1,7 @@
-/postCatView/ /index.html 200!
-/postView/ /index.html 200!
-/postFront/ /index.html 200!
-/postCatView/shomethingHere /postCatView/shomethingHere 200!
-/postView/shomethingHere /postView/shomethingHere 200!
-/postFront/postFront2 /postFront/postFront2 200!
-/    /index.html   200!
+/postCatView/ /index.html 301!
+/postView/ /index.html 301!
+/postFront/ /index.html 301!
+/postCatView/shomethingHere /postCatView/shomethingHere 301!
+/postView/shomethingHere /postView/shomethingHere 301!
+/postFront/postFront2 /postFront/postFront2 301!
+/*    /index.html   301!
