@@ -2,34 +2,34 @@
 from = "/postCatView/"
 to = "/index.html"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/postView/"
 to = "/index.html"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/postFront/"
 to = "/index.html"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/postCatView/shomethingHere"
 to = "/postCatView/shomethingHere"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/postView/shomethingHere"
 to = "/postView/shomethingHere"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/postFront/postFront2"
 to = "/postFront/postFront2"
 status = 301
-force = true
+force = false
 [[redirects]]
 from = "/"
 to = "/index.html"
 status = 301
-force = true
+force = false
