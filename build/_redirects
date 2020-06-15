@@ -1,4 +1,4 @@
-/postCatView/* /postCatView/* 200!
-/postView/* /postView/* 200!
-/postFront/* /postFront/* 200!
+/postCatView/* /postCatView/:splat 200!
+/postView/* /postView/:splat 200!
+/postFront/* /postFront/:splat 200!
 / index.html 200

@@ -1,11 +1,11 @@
 [[headers]]
-for = "/postCatView/* /postCatView/* 200!"
+for = "/postCatView/* /postCatView/:splat 200!"
 [headers.values]
 [[headers]]
-for = "/postView/* /postView/* 200!"
+for = "/postView/* /postView/:splat 200!"
 [headers.values]
 [[headers]]
-for = "/postFront/* /postFront/* 200!"
+for = "/postFront/* /postFront/:splat 200!"
 [headers.values]
 [[headers]]
 for = "/ index.html 200"
