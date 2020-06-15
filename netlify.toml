@@ -1,0 +1,35 @@
+[[redirects]]
+from = "/postCatView/"
+to = "/index.html"
+status = 200
+force = false
+[[redirects]]
+from = "/postView/"
+to = "/index.html"
+status = 200
+force = false
+[[redirects]]
+from = "/postFront/"
+to = "/index.html"
+status = 200
+force = false
+[[redirects]]
+from = "/postCatView/shomethingHere"
+to = "/postCatView/shomethingHere"
+status = 200
+force = false
+[[redirects]]
+from = "/postView/shomethingHere"
+to = "/postView/shomethingHere"
+status = 200
+force = false
+[[redirects]]
+from = "/postFront/postFront2"
+to = "/postFront/postFront2"
+status = 200
+force = false
+[[redirects]]
+from = "/"
+to = "/index.html"
+status = 200
+force = false
