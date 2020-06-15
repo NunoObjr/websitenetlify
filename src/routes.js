@@ -11,9 +11,9 @@ function Routes() {
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/postFront" component={PostFrontView}/>
-            <Route path="/postView" component={PostView}/>
-            <Route path="/postCatView" component={PostCatView}/>
+            <Route path="/postFront/" component={PostFrontView}/>
+            <Route path="/postView/" component={PostView}/>
+            <Route path="/postCatView/" component={PostCatView}/>
         </Switch>
             {//<Redirect strict from="/postCatView" to="/"/>
             }
