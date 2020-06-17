@@ -8,5 +8,9 @@ for = "/postView/* /postView/:splat 200!"
 for = "/postFront/* /postFront/:splat 200!"
 [headers.values]
 [[headers]]
-for = "/index.html 200"
+for = "/ index.html 200"
 [headers.values]
+
+[build]
+command = "npm run build && cp _redirects build/_redirects"
+publish = "dist"
