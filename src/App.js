@@ -1,7 +1,6 @@
 import React from 'react';
 import MenuBar from "./components/menuBar"
 import CatPosts from "./components/catPosts"
-import Slide from './components/slide'
 import ReviewsRecentes from './components/reviewsR'
 import Modal from '@material-ui/core/Modal';
 import EditorTexto from './components/editorTexto';
@@ -275,7 +274,7 @@ export default function App() {
             <div id='modalStyle'>
               <h1>Imagem do card/carrossel</h1>
               <ImageUpload direct={true} func={salvarMainImagem}/> 
-              <img src={urlMainImage} width="100px" height="100px" style={{margin:'2%'}} />
+              <img src={urlMainImage} width="100px" alt='image preview' height="100px" style={{margin:'2%'}} />
               <progress value={progressMainImage} max="40"/>
               <h1 style={{marginTop:'3%'}} >Título do card/carrossel</h1>
               <input onChange={handleMainTitulo} placeholder='Título do card/carrossel' 

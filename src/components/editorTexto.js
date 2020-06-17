@@ -1,7 +1,7 @@
 import React from 'react';
 import {Editor, EditorState, RichUtils, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css';
-import ImageUploadComponent from "./imageUpload"
+//import ImageUploadComponent from "./imageUpload"
 
 export default function EditorTexto(props){
 const [salvo, setSalvo] = React.useState(false)

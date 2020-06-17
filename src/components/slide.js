@@ -3,9 +3,7 @@ import './styles.css';
 import firebase from '../firebase';
 import { Slide } from 'react-slideshow-image';
 import { Link } from 'react-router-dom';
-import logo from '../assets/59164.jpg'
-import teste from '../assets/teste.jpg'
-import logoTGA from '../assets/logoTGA.png'
+
 
 export default function Slides(props) {
 
