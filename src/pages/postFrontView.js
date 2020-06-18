@@ -75,10 +75,10 @@ export default function PostFrontView(props){
                             </>
                         ))}
                     </div>
-                    <a className="anuncioG" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                    <a className="anuncioG" href="https://popcash.net/home/277414" rel="noopener noreferrer" target="_blank" title="PopCash - The Popunder network">
                         <img src="https://static.popcash.net/img/affiliate/160x600.jpg" alt="PopCash.net"/>
                     </a>
-                    <a className="anuncioP" href="https://popcash.net/home/277414" target="_blank" title="PopCash - The Popunder network">
+                    <a className="anuncioP" href="https://popcash.net/home/277414" rel="noopener noreferrer" target="_blank" title="PopCash - The Popunder network">
                         <img style={{width:"95%"}} src="https://static.popcash.net/img/affiliate/468x60.jpg" alt="PopCash.net"/>
                     </a>
                 </div>

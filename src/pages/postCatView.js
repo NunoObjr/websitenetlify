@@ -21,7 +21,6 @@ export default function PostCatView(props){
             await firebase.database().ref(`posts/categorias/${str.toLowerCase()}`).limitToLast(10).once('value').then(function(snapshot){Object.keys(snapshot.val()).forEach(function(postFeed){obrasAux.push({nomeDaObra:postFeed,fotos:snapshot.val()[postFeed].fotos,titulos:snapshot.val()[postFeed].titulos,textos:snapshot.val()[postFeed].textos,imagem:snapshot.val()[postFeed].imagem,sinopse:snapshot.val()[postFeed].sinopse,id:snapshot.val()[postFeed].id})})})
             setObras(obrasAux)
 
-            
         }
         
         

@@ -38,35 +38,35 @@ export default function menuBar(props){
                     <li className="liCFilho"><div>Jogos<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">
                             {menusJogos.map((jogo,key)=>(
-                                <Link to={{pathname:`/postCatView`,state:{url:`/jogos/${jogo == "Ação" ? 'acao':jogo}`,title:jogo}}}><li key={key}><p>{jogo}</p></li></Link>
+                                <Link to={{pathname:`/postCatView`,state:{url:`/jogos/${jogo === "Ação" ? 'acao':jogo}`,title:jogo}}}><li key={key}><p>{jogo}</p></li></Link>
                             ))}
                         </ul>
                     </li>
                     <li className="liCFilho"><div>Mangás<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">
                             {menusMangas.map((mangas,key)=>(
-                                <Link to={{pathname:`/postCatView`,state:{url:`/mangas/${mangas == "Ação" ? 'acao':mangas}`,title:mangas}}}><li key={key}><p>{mangas}</p></li></Link>
+                                <Link to={{pathname:`/postCatView`,state:{url:`/mangas/${mangas === "Ação" ? 'acao':mangas}`,title:mangas}}}><li key={key}><p>{mangas}</p></li></Link>
                             ))}
                         </ul>
                     </li>
                     <li className="liCFilho"><div>Animes<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">
                             {menusAnimes.map((animes,key)=>(
-                                <Link to={{pathname:`/postCatView`,state:{url:`/animes/${animes == "Ação" ? 'acao':animes}`,title:animes}}}><li key={key}><p>{animes}</p></li></Link>
+                                <Link to={{pathname:`/postCatView`,state:{url:`/animes/${animes === "Ação" ? 'acao':animes}`,title:animes}}}><li key={key}><p>{animes}</p></li></Link>
                             ))}
                         </ul>
                     </li>
                     <li className="liCFilho"><div>Filmes<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">
                             {menusFilmes.map((filmes,key)=>(
-                                <Link to={{pathname:`/postCatView`,state:{url:`/filmes/${filmes == "Ação" ? 'acao':filmes}`,title:filmes}}}><li key={key}><p>{filmes}</p></li></Link>
+                                <Link to={{pathname:`/postCatView`,state:{url:`/filmes/${filmes === "Ação" ? 'acao':filmes}`,title:filmes}}}><li key={key}><p>{filmes}</p></li></Link>
                             ))}
                         </ul>
                     </li>
                     <li className="liCFilho"><div>Séries<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">
                             {menusSeries.map((series,key)=>(
-                                <Link to={{pathname:`/postCatView`, state:{url:`/series/${series == "Ação" ? 'acao':series}`,title:series}}}><li key={key}><p>{series}</p></li></Link>
+                                <Link to={{pathname:`/postCatView`, state:{url:`/series/${series === "Ação" ? 'acao':series}`,title:series}}}><li key={key}><p>{series}</p></li></Link>
                             ))}   
                         </ul>
                     </li>
