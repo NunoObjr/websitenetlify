@@ -9,4 +9,4 @@ for = "/postFront/* /postFront/:splat 200!"
 [headers.values]
 [[headers]]
 for = "/ index.html 200"
-[headers.values]
+[headers.values] 
