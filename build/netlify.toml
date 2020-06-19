@@ -1,12 +1,12 @@
-[[headers]]
+[[redirects]]
 for = "/postCatView/* /postCatView/:splat 200!"
-[headers.values]
-[[headers]]
+[redirects.values]
+[[redirects]]
 for = "/postView/* /postView/:splat 200!"
-[headers.values]
-[[headers]]
+[redirects.values]
+[[redirects]]
 for = "/postFront/* /postFront/:splat 200!"
-[headers.values]
-[[headers]]
+[redirects.values]
+[[redirects]]
 for = "/ index.html 200"
-[headers.values]
+[redirects.values]
