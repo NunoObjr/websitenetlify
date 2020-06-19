@@ -3,25 +3,24 @@
   to = "/postCatView/:splat"
   status = 200
   force = false
-[redirects.values]
+
 
 [[redirects]]
   from = "/postView/*" 
   to = "/postView/:splat"
   status = 200
   force = false
-[redirects.values]
+
 
 [[redirects]]
   from = "/postFront/*"
   to = "/postFront/:splat"
   status = 200
   force = false
-[redirects.values]
+
 
 [[redirects]]
   from = "/*" 
   to = "/index.html"
   status = 200
   force = false
-[redirects.values]
