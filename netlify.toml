@@ -1,12 +1,26 @@
-[[headers]]
-for = "/postCatView/* /postCatView/:splat 200!"
-[headers.values]
-[[headers]]
-for = "/postView/* /postView/:splat 200!"
-[headers.values]
-[[headers]]
-for = "/postFront/* /postFront/:splat 200!"
-[headers.values]
-[[headers]]
-for = "/ index.html 200"
-[headers.values]
+[[redirects]]
+  from = "/postCatView/*"
+  to = "/postCatView/:splat"
+  status = 200
+  force = false
+
+
+[[redirects]]
+  from = "/postView/*" 
+  to = "/postView/:splat"
+  status = 200
+  force = false
+
+
+[[redirects]]
+  from = "/postFront/*"
+  to = "/postFront/:splat"
+  status = 200
+  force = false
+
+
+[[redirects]]
+  from = "/*" 
+  to = "/index.html"
+  status = 200
+  force = false
