@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import Drawer from '@material-ui/core/Drawer';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import CloseIcon from '@material-ui/icons/Close';
 import MenuIcon from '@material-ui/icons/Menu';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -132,7 +133,15 @@ export default function DrawerComponent(props) {
 
   const list = (
     <div  className='drawerContainer'>
-      <ul className='listLogo' >The Geek Awaken</ul>
+      <ul>
+      <li className='listLogo'>
+        The Geek Awaken
+        <CloseIcon 
+        style={{display:'flex',marginRight:'13%',cursor:'pointer' ,fontSize:props.props[0]}}
+        onClick={toggleDrawer(anchor, false)}
+        />
+      </li>
+      </ul>
       <ul className='list' onClick={()=>(window.location=`/`)} >Início</ul>
       <Divider/>
       {['Jogos', 'Mangás', 'Filmes', 'Séries', 'Animes'].map((text, index) => 

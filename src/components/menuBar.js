@@ -58,10 +58,10 @@ export default function menuBar(props){
                 <ul id="listaCat">
                 
                     <Drawer props={[socialFont()+10,menusJogos,menusMangas,menusFilmes,menusSeries,menusAnimes]} />
-            
+                <div id='logoAux' >
                 <li id='logo' onClick={()=>(window.location=`/`)} >
                     <img src={logo} alt='logo' alt='TheGeekAwaken logo' ></img>      
-                </li>
+                </li></div>
                     <li onClick={()=>(window.location=`/`)} className="liCFilho"><div>Início</div></li>
                     <li className="liCFilho"><div>Jogos<ArrowDropDownIcon/></div>
                         <ul className="listaCat2">

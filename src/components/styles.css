@@ -6,7 +6,8 @@
     width: 100%;
 }
 .MuiDrawer-paperAnchorLeft{
-    width: 50%;
+    width: 100%;
+    
 }
 .drawerContainer{
     width: 100%;
@@ -16,11 +17,14 @@
 .listLogo{
     -webkit-font-smoothing: antialised;
     font: 700 30px Barlow Condensed, sans-serif;
+    list-style-type: none;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .list{
     -webkit-font-smoothing: antialised;
     font: 700 25px Roboto, sans-serif;
-    
     align-items: center;
     list-style-type: none;
     padding-top:20px;
@@ -484,7 +488,10 @@ li div:hover{
     #logo{
         width: 300px;
         height: 50px;
-        margin-left:30%;
+    }
+    #logoAux{
+        display:flex;
+        justify-content:center;
     }
     #drawer{
         display: flex;
@@ -597,7 +604,11 @@ li div:hover{
     #logo{
         width: 300px;
         height: 50px;
-        margin-left:25%;
+    }
+    #logoAux{
+        display:flex;
+        justify-content:center;
+        
     }
     #drawer{
         display: flex;
@@ -698,13 +709,7 @@ li div:hover{
     }
 
 }
-@media (max-width: 621px){
-    #logo{
-        width: 300px;
-        height: 50px;
-        margin-left:15%;
-    }
-}
+
 .textCat{
     height: 30%;
     overflow-y: scroll;
