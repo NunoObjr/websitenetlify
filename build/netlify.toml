@@ -1,12 +1,5 @@
 [[redirects]]
-for = "/postCatView/* /postCatView/:splat 200!"
-[redirects.values]
-[[redirects]]
-for = "/postView/* /postView/:splat 200!"
-[redirects.values]
-[[redirects]]
-for = "/postFront/* /postFront/:splat 200!"
-[redirects.values]
-[[redirects]]
-for = "/ index.html 200"
-[redirects.values]
+from = "/*"
+to = "index.html"
+status = 200
+force = false
