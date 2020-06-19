@@ -1,25 +1,4 @@
 [[redirects]]
-  from = "/postCatView/*"
-  to = "/postCatView/:splat"
-  status = 200
-  force = false
-
-
-[[redirects]]
-  from = "/postView/*" 
-  to = "/postView/:splat"
-  status = 200
-  force = false
-
-
-[[redirects]]
-  from = "/postFront/*"
-  to = "/postFront/:splat"
-  status = 200
-  force = false
-
-
-[[redirects]]
   from = "/*" 
   to = "/index.html"
   status = 200
