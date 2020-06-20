@@ -871,30 +871,6 @@ li div:hover{
     font-size: 20px;
     font-family: 'Roboto', sans-serif; 
 }
-.verMais{
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 80px;
-    margin-top: 0.5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    transition: filter 0.2s; 
-}
-.verMais:hover {
-    cursor: pointer;
-    filter: brightness(80%)
-}
-.verMais h3{
-    color: white;
-    font: 700 40px Roboto, sans-serif;
-    -webkit-font-smoothing: antialised;
-}
-.hide {
-    display: none;
- }
  .slideContainer {
     width: 80%;
     margin: auto;

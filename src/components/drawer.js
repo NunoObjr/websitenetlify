@@ -44,7 +44,7 @@ export default function DrawerComponent(props) {
               to={{pathname:`/postCatView`,
               state:{url:`/jogos/${jogos == "Ação" ? 'acao':jogos}`,
               title:jogos}}}>
-                {jogosCat && <li className='listItem' key={key}>{jogos}</li>}
+              {jogosCat && <li className='listItem' key={key}>{jogos}</li>}
             </Link>))}
           {jogosCat&& <Divider/>}
         </ul>
@@ -60,7 +60,7 @@ export default function DrawerComponent(props) {
               to={{pathname:`/postCatView`,
               state:{url:`/mangas/${mangas == "Ação" ? 'acao':mangas}`,
               title:mangas}}}>
-                {mangasCat && <li className='listItem' key={key}>{mangas}</li>}
+              {mangasCat && <li className='listItem' key={key}>{mangas}</li>}
             </Link>))}
           {mangasCat&& <Divider/>}
         </ul>
@@ -75,7 +75,7 @@ export default function DrawerComponent(props) {
               to={{pathname:`/postCatView`,
               state:{url:`/filmes/${filmes == "Ação" ? 'acao':filmes}`,
               title:filmes}}}>
-                {filmesCat && <li className='listItem' key={key}>{filmes}</li>}
+              {filmesCat && <li className='listItem' key={key}>{filmes}</li>}
             </Link>))}
           {filmesCat&& <Divider/>}
         </ul>
@@ -90,7 +90,7 @@ export default function DrawerComponent(props) {
               to={{pathname:`/postCatView`,
               state:{url:`/series/${series == "Ação" ? 'acao':series}`,
               title:series}}}>
-                {seriesCat && <li className='listItem' key={key}>{series}</li>}
+              {seriesCat && <li className='listItem' key={key}>{series}</li>}
             </Link>))}
           {seriesCat&& <Divider/>}
         </ul>
@@ -105,7 +105,7 @@ export default function DrawerComponent(props) {
               to={{pathname:`/postCatView`,
               state:{url:`/animes/${animes == "Ação" ? 'acao':animes}`,
               title:animes}}}>
-                {animesCat && <li className='listItem' key={key}>{animes}</li>}
+              {animesCat && <li className='listItem' key={key}>{animes}</li>}
             </Link>))}
           {animesCat&& <Divider/>}
         </ul>

@@ -7,6 +7,7 @@ export default function ReviewsRecentes(props) {
     const [vetorStorage,setVetorStorage] = React.useState([])
     const [vetorCats, setVetorCats] = React.useState([])
     const [contador, setContador] = React.useState(0)
+    const [shouldLoad, setShouldLoad] = React.useState(false)
     
     async function carregarDados(){
         console.log("carregar dadod")
@@ -57,6 +58,13 @@ export default function ReviewsRecentes(props) {
         setVetorCats(vetorAux)
         aux !== 0 ?  setContador(contador+aux) : setContador(contador+4)
     }
+    
+      window.onscroll = function(kk) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            verMais() 
+        }
+    };
+
     return (
         <div id='containerReviews'>
             <div style={{marginBottom:'3%'}}>
@@ -81,10 +89,6 @@ export default function ReviewsRecentes(props) {
                     <div id="line"></div>
                 </div>
             ))}
-            <div className='verMais' onClick={()=>verMais()} >
-                <h3>Ver mais</h3>
-            </div>
-            
         </div>
     )
 }
