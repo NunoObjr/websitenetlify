@@ -15,6 +15,7 @@ export default function Slides() {
                     vetAux.push({nomeDaObra:postFeed,
                       fotos:snapshot.val()[postFeed].fotos,
                       titulos:snapshot.val()[postFeed].titulos,
+                      titulo:snapshot.val()[postFeed].titulo,
                       textos:snapshot.val()[postFeed].textos,
                       imagem:snapshot.val()[postFeed].imagem,
                       sinopse:snapshot.val()[postFeed].sinopse,
