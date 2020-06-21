@@ -59,7 +59,7 @@ export default function ReviewsRecentes(props) {
         aux !== 0 ?  setContador(contador+aux) : setContador(contador+4)
     }
     
-      window.onscroll = function(kk) {
+    window.onload = window.onscroll = function(kk) {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
             verMais() 
         }
