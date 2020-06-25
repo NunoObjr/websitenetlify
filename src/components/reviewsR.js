@@ -7,40 +7,60 @@ export default function ReviewsRecentes(props) {
     const [vetorStorage,setVetorStorage] = React.useState([])
     const [vetorCats, setVetorCats] = React.useState([])
     const [contador, setContador] = React.useState(0)
-    const [shouldLoad, setShouldLoad] = React.useState(false)
+    const [postID, setPostID] = React.useState(10)
+    const [postsLenght, setPostsLenght] = React.useState(0)
     
-    async function carregarDados(){
+    
+    async function carregarDados(postFeedRef){
         console.log("carregar dadod")
+        var x = await (await firebase.database().ref('posts/feed').once('value')).numChildren();
+        setPostsLenght(x);    
+    
         let vetorPostsFeedID = []
-        await firebase.database().ref(`posts/feed`).limitToLast(10).once('value').then(function(snapshot){
-            Object.keys(snapshot.val()).forEach(function(postFeed){
-                vetorPostsFeedID.push(snapshot.val()[postFeed])
+        await firebase.database().ref('posts/feed').orderByChild('id').limitToLast(10).once('value').then(function(snapshot){
+            snapshot.forEach(function(postFeed){
+                vetorPostsFeedID.push(postFeed.val())
             })
         })
+        
         let vetorAux = [];
-        let cont = contador
-        vetorPostsFeedID.reverse();
-        for(cont; cont<vetorPostsFeedID.length;cont++){
-            if(cont<4){
+        
+        vetorPostsFeedID.reverse()
+        for(var cont = contador; cont<vetorPostsFeedID.length;cont++){
+            if(cont<5){
                 vetorAux.push(vetorPostsFeedID[cont])
             }
             props.posts.push(vetorPostsFeedID[cont])
         }
-        setContador(4)
+        setContador(5)
         setVetorCats(vetorAux);
         setVetorStorage(vetorPostsFeedID)
+        
     }
+    
 
     React.useEffect(()=>{
         carregarDados();
-    },[])
-    function verMais() {
-        let vetorAux = [];
+        
+    },[]);
+    async function carregarPosts(){
+        let vetorPosts = vetorStorage;
+        var postFeedRef = firebase.database().ref('posts/feed'); 
+        postFeedRef.orderByChild('id').startAt(((postsLenght-1)-postID)-10).endAt((postsLenght-1)-postID).once('value', function(snapshot){
+            snapshot.forEach(function(post){
+                vetorPosts.push(post.val())
+            })   
+        });
+        setPostID(postID+10)
+        setVetorStorage(vetorPosts)
+    }
+    function verMais() {      
         let cont = contador
         let aux = 0
         let i = 0
-        vetorAux=[...vetorCats]
-        if(vetorStorage.length - cont < 4){
+        let vetorAux=[...vetorCats]
+        
+        if(vetorStorage.length - cont < 5){
             aux = vetorStorage.length - cont
             for(let t=0; t<aux;t++){
                 vetorAux.push(vetorStorage[cont])
@@ -49,22 +69,38 @@ export default function ReviewsRecentes(props) {
         }
         else{
             for(cont; cont<vetorStorage.length;cont++){
-                if(i<4){
+                if(i<5){
                     vetorAux.push(vetorStorage[cont])
                 }
                 i++
             }
         }
         setVetorCats(vetorAux)
-        aux !== 0 ?  setContador(contador+aux) : setContador(contador+4)
+        aux !== 0 ?  setContador(contador+aux) : setContador(contador+5)
     }
     
-    window.onload = window.onscroll = function(kk) {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            verMais() 
+   
+    var didScroll = false;
+        window.onscroll = function() {
+            var c = []
+            c = vetorStorage
+            var b = postsLenght;
+            var a = c.length;
+            
+            if(this.oldScroll < this.scrollY){//equal to "the user scrolled down?"
+                if ((a != b) && !didScroll && (window.innerHeight + window.scrollY) >= (document.body.offsetHeight)){
+                    carregarPosts();
+                    verMais();
+                    didScroll = true;
+                    setTimeout(() => {
+                        didScroll = false; 
+                    }, 2000);
+                }
+            }
+            this.oldScroll = this.scrollY;
         }
-    };
 
+      
     return (
         <div id='containerReviews'>
             <div style={{marginBottom:'3%'}}>

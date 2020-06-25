@@ -40,7 +40,6 @@ export default function Slides() {
         autoplay: true,
         defaultIndex: 0,
       }
-      console.log(vetCats)
       return (
         <div className="slideContainer">
 
