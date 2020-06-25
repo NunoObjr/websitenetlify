@@ -79,7 +79,7 @@ export default function ReviewsRecentes(props) {
         aux !== 0 ?  setContador(contador+aux) : setContador(contador+5)
     }
     
-   
+    
     var didScroll = false;
         window.onscroll = function() {
             var c = []
@@ -88,8 +88,11 @@ export default function ReviewsRecentes(props) {
             var a = c.length;
             
             if(this.oldScroll < this.scrollY){//equal to "the user scrolled down?"
-                if ((a != b) && !didScroll && (window.innerHeight + window.scrollY) >= (document.body.offsetHeight)){
-                    carregarPosts();
+                if (!didScroll && (window.innerHeight + window.scrollY) >= (document.body.offsetHeight)){
+                    if (a != b){
+                        carregarPosts();
+                    }
+                    
                     verMais();
                     didScroll = true;
                     setTimeout(() => {
