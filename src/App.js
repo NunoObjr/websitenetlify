@@ -15,6 +15,8 @@ import firebase from './firebase'
 import ImageUpload from './components/imageUpload'
 import './global.css';
 
+
+
 const useStyles = makeStyles((theme) => ({
     modal: {
       position: 'absolute',
@@ -68,6 +70,7 @@ export default function App() {
   const [username, setUsername] = React.useState('')
   const [sinopse, setSinopse] = React.useState('')
   const [progress, setProgress] = React.useState(0)
+  const [postsLenght, setPostsLenght] = React.useState(0)
   const [progressMainImage, setProgressMainImage] = React.useState(0)
   const [urlMainImage, setUrlMainImage] = React.useState('')
   const [vetorSecoes, setVetorSecoes] = React.useState([
@@ -79,7 +82,9 @@ export default function App() {
     aux[key] = !checkboxState[key]
     setCheckoxState(aux)
   };
-  function handleOpen(){
+  async function handleOpen(){
+    var x = (await firebase.database().ref('posts/feed').once('value')).numChildren();
+        setPostsLenght(x);
     setOpen(true);
     localStorage.setItem('url',JSON.stringify([]))
   }
@@ -180,9 +185,9 @@ export default function App() {
        }
        var newKeyPost = (await firebase.database().ref(`posts/feed/`).child("feed").push()).key;
        var updates = {}
-       updates[`/posts/feed/`+ newKeyPost] = {titulo:mainTitutlo,imagem:urlMainImage,id:newKeyPost,sinopse:sinopse,fotos:objFotos,titulos:objTitulos,textos:objTextos}
+       updates[`/posts/feed/`+ newKeyPost] = {titulo:mainTitutlo,imagem:urlMainImage,id:postsLenght,sinopse:sinopse,fotos:objFotos,titulos:objTitulos,textos:objTextos}
        await firebase.database().ref().update(updates)
-    let vetorPostsFeedID = []
+       let vetorPostsFeedID = []
         await firebase.database().ref(`posts/categorias`).once('value').then(function(snapshot){
             Object.keys(snapshot.val()).forEach(function(postFeed){
                 vetorPostsFeedID.push(postFeed)
@@ -250,8 +255,9 @@ export default function App() {
       setVetorSecoes(vetAux2)
       }
   }
-  function handleLogar(){
+  async function handleLogar(){
     handleOpenLogar()
+     
   }
   
   return (
@@ -334,9 +340,10 @@ export default function App() {
             <button onClick={()=>{
               if(username === 'editor' && senha === 'logar'){
               localStorage.setItem("logado","logado") 
-              handleCloseLogar()
+              handleOpen();
+              
               }
-            }}>Confimar</button>
+            }}>Confirmar</button>
           </div>
         </div>
       </Modal>
@@ -364,13 +371,15 @@ export default function App() {
         </Select>
       </FormControl>
         <button onClick={async()=>(
+          
           await firebase.database().ref(`posts/postsFront/postFront${postFrontKey}`).set({
             fotos: postChooseInfo.fotos,
             imagem:postChooseInfo.imagem,
             sinopse:postChooseInfo.sinopse,
             textos:postChooseInfo.textos,
             titulos:postChooseInfo.titulos,
-            titulo:postChooseInfo.titulo
+            titulo:postChooseInfo.titulo,
+            
           }).then(handleCloseEditPost())
          
         )}>Modificar</button>

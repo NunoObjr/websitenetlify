@@ -13,7 +13,7 @@ export default function ReviewsRecentes(props) {
     
     async function carregarDados(postFeedRef){
         console.log("carregar dadod")
-        var x = await (await firebase.database().ref('posts/feed').once('value')).numChildren();
+        var x = (await firebase.database().ref('posts/feed').once('value')).numChildren();
         setPostsLenght(x);    
     
         let vetorPostsFeedID = []
