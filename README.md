@@ -7,7 +7,7 @@ Site/blog de **cultura geek** (jogos, animes, mangás, filmes e séries) em **Re
 - Página inicial com carrossel (*slideshow*), reviews recentes e posts por categoria
 - Categorias: `jogos`, `animes`, `mangas`, `filmes`, `series`
 - Páginas de post em destaque (`/postFront`), post (`/postView`) e categoria (`/postCatView`)
-- Área autenticada para criar/editar posts com **editor de texto rico** (Draft.js) e **upload de imagens**
+- Área de edição, aberta por um modal de login, para criar/editar posts com **editor de texto rico** (Draft.js) e **upload de imagens**
 - Layout responsivo com Material-UI
 
 ## Conceitos técnicos
@@ -18,8 +18,7 @@ Site/blog de **cultura geek** (jogos, animes, mangás, filmes e séries) em **Re
 
 - *Realtime Database* guarda os posts (`posts/feed`, `posts/postsFront`)
 - *Storage* guarda as imagens enviadas
-- *Authentication* controla quem pode editar
-- Regras do banco/storage exigem usuário autenticado (`database.rules.json`, `storage.rules`)
+- As regras do banco e do Storage exigem usuário autenticado (`database.rules.json`, `storage.rules`)
 
 **Editor rico (Draft.js).** O conteúdo é editado em `EditorTexto` e persistido para ser renderizado nas páginas de leitura.
 
@@ -27,7 +26,7 @@ Site/blog de **cultura geek** (jogos, animes, mangás, filmes e séries) em **Re
 
 ## Stack
 
-React 16 · React Router 5 · Material-UI 4 · Draft.js · Firebase 7 (Realtime Database, Storage, Auth, Functions) · Netlify
+React 16 · React Router 5 · Material-UI 4 · Draft.js · Firebase 7 (Realtime Database, Storage, Functions) · Netlify
 
 ## Estrutura
 
@@ -57,4 +56,6 @@ Para usar seu próprio backend, crie um projeto no [Firebase](https://console.fi
 ## Observações
 
 - As chaves web do Firebase são identificadores públicos; a segurança vem das **regras** do banco e do Storage — mantenha-as restritivas.
+- O login do modal de edição é validado **apenas no navegador**, então não protege o conteúdo; a proteção real deve vir do Firebase Authentication combinado com as regras do banco.
+- As regras do Firestore (`firestore.rules`) estão abertas para leitura e escrita; como o projeto usa o Realtime Database, restrinja-as ou remova-as.
 - A pasta `node_modules/` está versionada neste repositório; o ideal é removê-la do Git e mantê-la no `.gitignore`.
