@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Geek Awaken — site
 
-## Available Scripts
+Site/blog de **cultura geek** (jogos, animes, mangás, filmes e séries) em **React**, com posts em destaque, listagem por categoria, página de cada postagem e um **painel de edição** para criar publicações com texto formatado e imagens. O conteúdo é guardado no **Firebase** e o site é publicado na **Netlify**.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `yarn start`
+- Página inicial com carrossel (*slideshow*), reviews recentes e posts por categoria
+- Categorias: `jogos`, `animes`, `mangas`, `filmes`, `series`
+- Páginas de post em destaque (`/postFront`), post (`/postView`) e categoria (`/postCatView`)
+- Área autenticada para criar/editar posts com **editor de texto rico** (Draft.js) e **upload de imagens**
+- Layout responsivo com Material-UI
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Conceitos técnicos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**SPA com React Router.** Rotas client-side (`BrowserRouter`); o arquivo `netlify.toml` reescreve qualquer caminho para `/index.html` para o roteamento funcionar após recarregar a página.
 
-### `yarn test`
+**Firebase como backend (BaaS).**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- *Realtime Database* guarda os posts (`posts/feed`, `posts/postsFront`)
+- *Storage* guarda as imagens enviadas
+- *Authentication* controla quem pode editar
+- Regras do banco/storage exigem usuário autenticado (`database.rules.json`, `storage.rules`)
 
-### `yarn build`
+**Editor rico (Draft.js).** O conteúdo é editado em `EditorTexto` e persistido para ser renderizado nas páginas de leitura.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Deploy contínuo na Netlify.** O comando de build é `CI=false react-scripts build`; as rotas são tratadas por `_redirects`/`netlify.toml`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React 16 · React Router 5 · Material-UI 4 · Draft.js · Firebase 7 (Realtime Database, Storage, Auth, Functions) · Netlify
 
-### `yarn eject`
+## Estrutura
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+src/
+  App.js                 # home: slide, reviews, categorias e modal de login/edição
+  routes.js              # rotas
+  firebase.js            # inicialização do Firebase
+  components/            # menuBar, slide, catPosts, reviewsR, editorTexto, imageUpload, drawer
+  pages/                 # postFrontView, postView, postCatView
+functions/               # Cloud Functions (esqueleto)
+database.rules.json      # regras do Realtime Database
+storage.rules            # regras do Storage
+netlify.toml             # redirecionamento SPA
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Como executar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+yarn install
+yarn start        # http://localhost:3000
+yarn build        # gera build/ para produção
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Para usar seu próprio backend, crie um projeto no [Firebase](https://console.firebase.google.com/) e substitua a configuração em `src/firebase.js` (de preferência lendo de variáveis `REACT_APP_*`).
 
-## Learn More
+## Observações
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- As chaves web do Firebase são identificadores públicos; a segurança vem das **regras** do banco e do Storage — mantenha-as restritivas.
+- A pasta `node_modules/` está versionada neste repositório; o ideal é removê-la do Git e mantê-la no `.gitignore`.
